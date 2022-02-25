@@ -1,9 +1,14 @@
 ﻿using RabbitMQ.Client;
 using System.Text;
+var serverName = "192.168.26.106";
 
-var factory = new ConnectionFactory();
-factory.HostName = "127.0.0.1";//RabbitMQ服务器地址
-factory.DispatchConsumersAsync = true;
+var factory = new ConnectionFactory() {
+    UserName = "haiyiguo",
+    Password = "haiyiguo",
+    HostName= serverName,
+    DispatchConsumersAsync = true
+};
+ 
 string exchangeName = "exchange1";//交换机的名字
 string eventName = "myEvent";// routingKey的值
 using var conn = factory.CreateConnection();

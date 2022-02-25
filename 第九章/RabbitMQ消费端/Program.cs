@@ -1,10 +1,14 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
-
-var factory = new ConnectionFactory();
-factory.HostName = "127.0.0.1";
-factory.DispatchConsumersAsync = true;
+var serverName = "192.168.26.106";
+var factory = new ConnectionFactory()
+{
+    UserName = "haiyiguo",
+    Password = "haiyiguo",
+    HostName = serverName,
+    DispatchConsumersAsync = true
+};
 string exchangeName = "exchange1";
 string eventName = "myEvent";
 using var conn = factory.CreateConnection();
